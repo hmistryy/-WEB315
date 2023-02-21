@@ -1,0 +1,165 @@
+
+@page
+@model PhotoGalleryModel
+
+<h1>Photo Gallery</h1>
+
+@foreach (var photo in Model.Photos)
+{
+    <div>
+        <img src="@photo.FilePath" alt="@photo.Caption" />
+        <p>@photo.Caption</p>
+        <p>@photo.DateTaken.ToString()</p>
+    </div>
+}
+
+
+
+class Photo
+{
+    public string FilePath { get; set; }
+    public string Caption { get; set; }
+    public DateTime DateTaken { get; set; }
+    public int Width { get; set; }
+    public string Photographer { get; set; }
+}
+
+@model IEnumerable<Photo>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FilePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Caption)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTaken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photographer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilePath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Caption)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTaken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Photographer)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+@model Photo
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="FilePath" class="control-label"></label>
+        <input asp-for="FilePath" class="form-control" />
+        <span asp-validation-for="FilePath" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Caption" class="control-label"></label>
+        <input asp-for="Caption" class="form-control" />
+        <span asp-validation-for="Caption" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateTaken" class="control-label"></label>
+        <input asp-for="DateTaken" class="form-control" />
+        <span asp-validation-for="DateTaken" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <
+
+<div class="form-group">
+    <label asp-for="Width" class="control-label"></label>
+    <input asp-for="Width" class="form-control" />
+    <span asp-validation-for="Width" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Photographer" class="control-label"></label>
+    <input asp-for="Photographer" class="form-control" />
+    <span asp-validation-for="Photographer" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <input type="submit" value="Create" class="btn btn-default" />
+</div>
+
+
+
+public static class SeedData
+{
+    public static void Initialize(IServiceProvider serviceProvider)
+    {
+        using (var context = new PhotoGalleryContext(
+            serviceProvider.GetRequiredService<DbContextOptions<PhotoGalleryContext>>()))
+        {
+            // Check if data already exists in the database
+            if (context.Photos.Any())
+            {
+                return; // Database has already been seeded
+            }
+
+            context.Photos.AddRange(
+                new Photo
+                {
+                    FilePath = "photo1.jpg",
+                    Caption = "Photo 1",
+                    DateTaken = new DateTime(2020, 1, 1),
+                    Height = 1080,
+                    Width = 1920,
+                    Photographer = "John Smith"
+                },
+                new Photo
+                {
+                    FilePath = "photo2.jpg",
+                    Caption = "Photo 2",
+                    DateTaken = new DateTime(2020, 2, 1),
+                    Height = 720,
+                    Width = 1280,
+                    Photographer = "Jane Doe"
+                },
+                new Photo
+                {
+                    FilePath = "photo3.jpg",
+                    Caption = "Photo 3",
+                    DateTaken = new DateTime(2020, 3, 1),
+                    Height = 1440,
+                    Width = 2560,
+                    Photographer = "Bob Johnson"
+                }
+            );
+
+            context.SaveChanges();
+        }
+    }
+}
