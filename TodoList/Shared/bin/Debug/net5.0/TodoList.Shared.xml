@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TodoList.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:TodoList.Shared.Auth.AuthenticateRequest">
+            <summary>
+            User's name and password
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Auth.AuthenticateRequest.Username">
+            <summary>
+            The name of the user 
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Auth.AuthenticateRequest.Password">
+            <summary>
+            The password of the user 
+            </summary>
+        </member>
+        <member name="T:TodoList.Shared.Auth.AuthenticateResponse">
+            <summary>
+            User with Id, Login and Token fields
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Auth.AuthenticateResponse.Id">
+            <summary>
+            The id of the user
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Auth.AuthenticateResponse.Username">
+            <summary>
+            The name of the user 
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Auth.AuthenticateResponse.Token">
+            <summary>
+            The token
+            </summary>
+        </member>
+        <member name="T:TodoList.Shared.Dto.ListOfTodosDto">
+            <summary>
+            Todo list with Id, Title and Todos fields
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.ListOfTodosDto.Id">
+            <summary>
+            The id of todo list
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.ListOfTodosDto.Title">
+            <summary>
+            The title of todo list
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.ListOfTodosDto.Todos">
+            <summary>
+            The list of todos belonging to this todo list
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.ListOfTodosDto.UserId">
+            <summary>
+            The id of user which this todo list belongs
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.ListOfTodosForManipulationDto.Title">
+            <summary>
+            The title of todo list
+            </summary>
+        </member>
+        <member name="T:TodoList.Shared.Dto.TodoDto">
+            <summary>
+            Todo with Id, Title, Description, IsDone, DateAdded, Color and ListOfTodosId fields
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.TodoDto.Id">
+            <summary>
+            The id of todo
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.TodoDto.Title">
+            <summary>
+            The title of todo
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.TodoDto.Description">
+            <summary>
+            The description of todo
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.TodoDto.IsDone">
+            <summary>
+            Todo is done status
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.TodoDto.DateAdded">
+            <summary>
+            The date of todo creation
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.TodoDto.Color">
+            <summary>
+            Color of todo
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.TodoDto.ListOfTodosId">
+            <summary>
+            The id of todo list which this todo belongs
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.TodoForManipulationDto.Title">
+            <summary>
+            The title of todo
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.TodoForManipulationDto.Description">
+            <summary>
+            The description of todo
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.TodoForUpdateDto.IsDone">
+            <summary>
+            Todo is done status
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.TodoForUpdateDto.Color">
+            <summary>
+            Color of todo
+            </summary>
+        </member>
+        <member name="T:TodoList.Shared.Dto.UserDto">
+            <summary>
+            User with Id and Username fields
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.UserDto.Id">
+            <summary>
+            The id of user
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.UserDto.Username">
+            <summary>
+            The name of user
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.UserForCreationDto.Username">
+            <summary>
+            The name of the user 
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.UserForCreationDto.Password">
+            <summary>
+            The password of the user 
+            </summary>
+        </member>
+        <member name="P:TodoList.Shared.Dto.UserForCreationDto.ConfirmPassword">
+            <summary>
+            The confirmation of user password
+            </summary>
+        </member>
+    </members>
+</doc>

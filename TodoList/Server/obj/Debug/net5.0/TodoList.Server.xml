@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TodoList.Server</name>
+    </assembly>
+    <members>
+        <member name="M:TodoList.Server.Controllers.ListsController.NewListOfTodos(TodoList.Shared.Dto.ListOfTodosForCreationDto)">
+            <summary>
+            Create a new todo list
+            </summary>
+            <param name="listOfTodos">The todo list to create</param>
+            <returns>An ActionResult of type ListOfTodosDto</returns>
+            <response code="201">Creates and returns the created todo list</response>
+        </member>
+        <member name="M:TodoList.Server.Controllers.ListsController.GetTodoList(System.Int32)">
+            <summary>
+            Get todo list by id
+            </summary>
+            <param name="listOfTodosId">The Id of todo list you want to get</param>
+            <returns>An ActionResult of type ListOfTodosDto</returns>
+            <response code="200">Returns the requested todo list</response>
+        </member>
+        <member name="M:TodoList.Server.Controllers.ListsController.GetTodoLists">
+            <summary>
+            Get a list of todo lists
+            </summary>
+            <returns>An ActionResult of type IEnumerable</returns>
+            <response code="200">Returns the list of todo lists</response>
+        </member>
+        <member name="M:TodoList.Server.Controllers.ListsController.UpdateListOfTodo(System.Int32,TodoList.Shared.Dto.ListOfTodosForUpdateDto)">
+            <summary>
+            Update todo list
+            </summary>
+            <param name="listOfTodosId">The Id of todo list you want to update</param>
+            <param name="listOfTodos">The todo list with updated values</param>
+            <returns>An IActionResult</returns>
+        </member>
+        <member name="M:TodoList.Server.Controllers.ListsController.DeleteListOfTodos(System.Int32)">
+            <summary>
+            Delete the todo list with given id
+            </summary>
+            <param name="listOfTodosId">The Id of todo list you want to delete</param>
+            <returns>An IActionResult</returns>
+        </member>
+        <member name="M:TodoList.Server.Controllers.TodosController.NewTodo(System.Int32,TodoList.Shared.Dto.TodoForCreationDto)">
+            <summary>
+            Create a new todo
+            </summary>
+            <param name="listOfTodosId">The todo list id for which to create todo</param>
+            <param name="todo">The todo to create</param>
+            <returns>An ActionResult of type TodoDto</returns>
+            <response code="201">Creates and returns the created todo</response>
+        </member>
+        <member name="M:TodoList.Server.Controllers.TodosController.GetTodosOfList(System.Int32)">
+            <summary>
+            Get a list of todos from specified todo list
+            </summary>
+            <param name="listOfTodosId">The Id of todo list you want to get todos from</param>
+            <returns>An ActionResult of type IEnumerable</returns>
+            <response code="200">Returns the requested list of todos from specified todo list</response>
+        </member>
+        <member name="M:TodoList.Server.Controllers.TodosController.GetTodoOfList(System.Int32,System.Int32)">
+            <summary>
+            Get todo from specified todo list
+            </summary>
+            <param name="listOfTodosId">The Id of todo list you want to get todo from</param>
+            <param name="todoId">The Id of todo you want to get</param>
+            <returns>An ActionResult of type TodoDto</returns>
+            <response code="200">Returns the requested todo from specified todo list</response>
+        </member>
+        <member name="M:TodoList.Server.Controllers.TodosController.UpdateTodo(System.Int32,System.Int32,TodoList.Shared.Dto.TodoForUpdateDto)">
+            <summary>
+            Update todo
+            </summary>
+            <param name="listOfTodosId">The Id of todo list which you want to update todo</param>
+            <param name="todoId">The Id of todo you want to update</param>
+            <param name="todo">The todo with updated values</param>
+            <returns>An IActionResult</returns>
+        </member>
+        <member name="M:TodoList.Server.Controllers.TodosController.PartiallyUpdateTodo(System.Int32,System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{TodoList.Shared.Dto.TodoForUpdateDto})">
+             <summary>
+             Partially update a todo
+             </summary>
+             <param name="listOfTodosId">The Id of todo list which you want to partially update todo</param>
+             <param name="todoId">The Id of todo you want to partially update</param>
+             <param name="patchDocument">The set of operations to apply to the todo</param>
+             <returns>An IActionResult</returns>
+             <remarks>
+             Sample request (this request updates the todos's **isDone** status)
+            
+                 PATCH /lists/listId/todos/todoId 
+                 [ 
+                     { 
+                         "op": "replace", 
+                         "patch": "/isDone", 
+                         "value": true 
+                     } 
+                 ]
+             </remarks>
+        </member>
+        <member name="M:TodoList.Server.Controllers.TodosController.DeleteTodo(System.Int32,System.Int32)">
+            <summary>
+            Delete the todo with given id
+            </summary>
+            <param name="listOfTodosId">The Id of todo list you want to delete todo from</param>
+            <param name="todoId">The id of todo you want to delete</param>
+            <returns>An IActionResult</returns>
+        </member>
+        <member name="M:TodoList.Server.Controllers.UsersController.Authenticate(TodoList.Shared.Auth.AuthenticateRequest)">
+            <summary>
+            Authenticate the user
+            </summary>
+            <param name="authenticateRequest">Username and password of user</param>
+            <returns>An ActionResult of type AuthenticateResponse</returns>
+            <response code="200">Returns the user with token</response>
+        </member>
+        <member name="M:TodoList.Server.Controllers.UsersController.Register(TodoList.Shared.Dto.UserForCreationDto)">
+             <summary>
+             Create new user
+             </summary>
+             <param name="user">User to create</param>
+             <returns>An ActionResult of type UserDto</returns>
+            <response code="201">Creates and returns created user</response>
+        </member>
+        <member name="M:TodoList.Server.Controllers.UsersController.GetUser(System.Int32)">
+            <summary>
+            Get user by id
+            </summary>
+            <param name="userId">The id of user you want to get</param>
+            <returns>An ActionResult of type UserDto></returns>
+            <response code="200">Returns the requested user</response>
+        </member>
+    </members>
+</doc>
